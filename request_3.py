@@ -35,7 +35,8 @@ def no3():  #第三题接口
                 'y':str(y)
             }
     url = 'http://127.0.0.1:5000/3'
-    
+    for i in data:
+        print("当前第"+i+"个业务员坐标为："+data[i]['x']+","+data[i]['y'])
     r = requests.post(url,data=json.dumps(data))
     #print('??')
     tmp_all = r.json()

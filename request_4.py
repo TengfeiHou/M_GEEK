@@ -41,13 +41,13 @@ import time
 #         print("第"+str(i)+"个业务员需要去找编号是："+tmp['bianhao']+"的用户,"+"坐标是：("+str(tmp['x'])+","+str(tmp['y'])+")")
 #     #print(time.time())
 
-def no4_1():  #第三题接口
+def no4_1():  #第4题接口
     #print(time.time())
     data = dict()
     #xx = round(random.random()*1000,2)
     #yy = round(random.random()*1000,2)
     print("输入。。。。。。")
-    for i in range(10):
+    for i in range(15):
         x = round(random.random()*1000,2)#xx
         y = round(random.random()*1000,2)#yy
 
@@ -63,7 +63,7 @@ def no4_1():  #第三题接口
     print(r.text)
     return 
 
-def no4_2():  #第三题接口
+def no4_2():  #第4题接口
     #print(time.time())
     data = dict()
     #xx = round(random.random()*1000,2)
@@ -82,14 +82,17 @@ def no4_2():  #第三题接口
     #print('??')
     tmp_all = r.json()
     print(tmp_all)
-    for i in range(10):
-        tmp = tmp_all[str(i)]
-        print("第"+str(i)+"个业务员需要去找编号是："+tmp['bianhao']+"的用户,"+"坐标是：("+str(tmp['x'])+","+str(tmp['y'])+")")
+    for i in tmp_all:
+        print("第"+str(i)+"个业务员有"+str(len(tmp_all[i]))+"个用户分别是")
+        for j in tmp_all[i]:
+            tmp = tmp_all[i][j]
+            print("编号是："+str(tmp['bianhao'])+"的用户,"+"坐标是：("+str(tmp['x'])+","+str(tmp['y'])+")")
     #print(time.time())
 
 def main():
     no4_1()
-    #no4_2()
+
+    no4_2()
 
 
 if __name__=="__main__":
