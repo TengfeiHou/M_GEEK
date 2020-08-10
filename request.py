@@ -18,11 +18,13 @@ def no2():
     print("编号是："+tmp['bianhao']+","+"坐标是：("+tmp['x']+","+tmp['y']+")")
 
 def no3():
-    print(time.time())
+    #print(time.time())
     data = dict()
+    #xx = round(random.random()*1000,2)
+    #yy = round(random.random()*1000,2)
     for i in range(100):
-        x = round(random.random()*1000,2)
-        y = round(random.random()*1000,2)
+        x = round(random.random()*1000,2)#xx
+        y = round(random.random()*1000,2)#yy
         print("当前第"+str(i)+"个业务员坐标为："+str(x)+","+str(y))
         data[str(i)] = {
             'x':str(x),
@@ -33,11 +35,11 @@ def no3():
     r = requests.post(url,data=json.dumps(data))
     #print('??')
     tmp_all = r.json()
-    #print(tmp_all)
+    print(tmp_all)
     for i in range(100):
         tmp = tmp_all[str(i)]
-        print("第"+str(i)+"个业务员需要去找编号是："+tmp['bianhao']+"的用户,"+"坐标是：("+tmp['x']+","+tmp['y']+")")
-    print(time.time())
+        print("第"+str(i)+"个业务员需要去找编号是："+tmp['bianhao']+"的用户,"+"坐标是：("+str(tmp['x'])+","+str(tmp['y'])+")")
+    #print(time.time())
 
 def main():
     no3()
