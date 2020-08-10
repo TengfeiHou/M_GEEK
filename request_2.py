@@ -6,7 +6,7 @@ def no2():  #第二题接口
     x = round(random.random()*1000,2)
     y = round(random.random()*1000,2)
     
-    data = { 'x':str(754.51),'y': str(393.26)} #接入字典数据
+    data = { } #接入字典数据
     if not data: #没有就自动生成
         data = {
             'x':str(x),
@@ -17,7 +17,7 @@ def no2():  #第二题接口
     r = requests.post(url,data=json.dumps(data))
     #print('??')
     tmp = r.json()
-    print("编号是："+tmp['bianhao']+","+"坐标是：("+tmp['x']+","+tmp['y']+")")
+    print("最近用户编号是："+tmp['bianhao']+","+"坐标是：("+tmp['x']+","+tmp['y']+")")
 
 # def no3():  #第三题接口
 #     #print(time.time())
