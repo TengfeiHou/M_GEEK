@@ -35,15 +35,16 @@ def danxiaocheng():
     # print(pos_json['y'])
     x = pos_json['x']
     y = pos_json['y']
-    eps = 1
-    x1 = str(float(x)+eps)
-    x2 = str(float(x)-eps)
-    y1 = str(float(y)+eps)
-    y2 = str(float(y)-eps)
+    
 
     tmp = []
-    
+    eps = 1
     while not tmp:
+        
+        x1 = str(float(x)+eps)
+        x2 = str(float(x)-eps)
+        y1 = str(float(y)+eps)
+        y2 = str(float(y)-eps)
         print("finding.....")
         tmp = yewuyuan.query.filter(yewuyuan.x < x1,\
                                     yewuyuan.x > x2 ,\

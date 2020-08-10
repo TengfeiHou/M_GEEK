@@ -1,9 +1,13 @@
 import requests,json
+import random
  
 #print('?')
+x = round(random.random()*1000,2)
+y = round(random.random()*1000,2)
+print("当前业务员坐标为："+str(x)+","+str(y))
 data = {
-    'x':"1.11",
-    'y':"200.22"
+    'x':str(x),
+    'y':str(y)
 }
 url = 'http://127.0.0.1:5000/2'
  
