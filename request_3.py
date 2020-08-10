@@ -22,14 +22,18 @@ def no3():  #第三题接口
     data = dict()
     #xx = round(random.random()*1000,2)
     #yy = round(random.random()*1000,2)
-    for i in range(100):
-        x = round(random.random()*1000,2)#xx
-        y = round(random.random()*1000,2)#yy
-        print("当前第"+str(i)+"个业务员坐标为："+str(x)+","+str(y))
-        data[str(i)] = {
-            'x':str(x),
-            'y':str(y)
-        }
+    data = {} #接入数据
+
+    if len(data)<100:  #不足的话自动生成
+
+        for i in range(len(data),100):
+            x = round(random.random()*1000,2)#xx
+            y = round(random.random()*1000,2)#yy
+            #print("当前第"+str(i)+"个业务员坐标为："+str(x)+","+str(y))
+            data[str(i)] = {
+                'x':str(x),
+                'y':str(y)
+            }
     url = 'http://127.0.0.1:5000/3'
     
     r = requests.post(url,data=json.dumps(data))
