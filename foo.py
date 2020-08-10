@@ -1,22 +1,5 @@
-import pymysql
-from tqdm import tqdm
-
-def putindatabase():
-    
-    connc = pymysql.Connect(
-        user = 'root',
-        password='ayhtf123',
-        database = 'yewuyuan',
-        charset = 'utf8'
-    )
-    
-    
-    connc.rollback()
-    connc.close()
-    print('done')
-        
-if __name__ == "__main__":
-    # read data
-    putindatabase()
-
+print(1597044098.8635452-1597043723.8725443)
+import time
+print (time.localtime(1597044098.8635452))
+print (time.localtime(1597043723.8725443))
 
