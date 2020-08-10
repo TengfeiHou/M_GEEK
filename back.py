@@ -237,7 +237,49 @@ def duoxiancheng():
     #print(res_all)
     return jsonify(res_all)
 
+@app.route('/4_1',methods = ["POST"])
+def danxiancheng():
+    if  not request.data:   #检测是否有数据
+        return ('fail')
+    
+    pos = request.data.decode('utf-8')
+    pos_json = json.loads(pos)
+    #print(pos_json)
+    try :
+        connc = pymysql.Connect(
+            user = 'root',
+            password='ayhtf123',
+            database = 'yewuyuan',
+            charset = 'utf8'
+        )
+        
+        cur = connc.cursor()
+        try:
+            cur.execute("drop table yonghu;")
+        except:
+            print("还没用户表表")
+            pass
 
+        cur.execute("create table yonghu(id int primary key not null  auto_increment,bianhao char(10) not null , x decimal(10,2) not null,y decimal(10,2) not null);")
+        
+        sql = "insert into yonghu values (%s,%s,%s,%s)"
+        for i in pos_json:
+        
+            b = ['0',pos_json[i]['bianhao'],pos_json[i]['x'],pos_json[i]['y']]
+            #print(b)
+    
+
+            cur.execute(sql,b)
+            
+        connc.commit()
+    except Exception as e:
+        print(e)
+        connc.rollback()
+    finally :
+        cur.close()
+        connc.close()
+    print('done')
+    return "用户登记成功"
 
 if __name__=='__main__':
     app.run(debug=True)
