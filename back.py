@@ -95,7 +95,7 @@ def duoxiancheng():
     pos_json = json.loads(pos)
     N = 100
     # 聚类
-    k = 50000 #距离
+    k = 10000 #距离
     zuobiao = [[0,0]for _ in range(N)]
     point  = set([i for i in range(N)])
     juli = [[0]*N for _ in range(N)]

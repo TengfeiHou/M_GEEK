@@ -6,7 +6,7 @@ def no2():  #第二题接口
     x = round(random.random()*1000,2)
     y = round(random.random()*1000,2)
     
-    data = { } #接入字典数据
+    data = {'x':str(805.0),'y':str(997.0)} #接入字典数据
     if not data: #没有就自动生成
         data = {
             'x':str(x),
